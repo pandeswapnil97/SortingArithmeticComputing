@@ -59,11 +59,62 @@ echo "Welcome to Sorting Arithmetic Computation Problem"
 
 #Use Case 5 (Compute ( a % b + c ))
 
+#read -p "Enter the value of a: " a
+#read -p "Enter the value of b: " b
+#read -p "Enter the value of c: " c
+#
+##Compute ( a % b + c )
+#
+#expr4=`awk "BEGIN {print ($a % $b) + $c}"`
+#echo "a%b+c="$expr4
+
+
+
+
+
+#Use Case 6 (Storing the results into dictionary)
+
+declare -A expr_result
+
 read -p "Enter the value of a: " a
 read -p "Enter the value of b: " b
 read -p "Enter the value of c: " c
+
+
+
+#Compute ( a + b * c )
+
+expr1=`awk "BEGIN {print $a + ( $b * $c)}"`
+echo "a+b*c="$expr1
+
+
+#Compute ( a * b + c )
+
+expr2=`awk "BEGIN {print ($a * $b) + $c}"`
+echo "a*b+c="$expr2
+
+
+#Compute ( c + a / b )
+
+expr3=`awk "BEGIN {print $c + ($a / $b)}"`
+echo "c+a/b="$expr3
+
 
 #Compute ( a % b + c )
 
 expr4=`awk "BEGIN {print ($a % $b) + $c}"`
 echo "a%b+c="$expr4
+
+echo "        "
+
+expr_result[a+b*c]=$expr1
+expr_result[a*b+c]=$expr2
+expr_result[c+a/b]=$expr3
+expr_result[a%b+c]=$expr4
+
+echo "Computed Dictionary:"
+
+for i in "${!expr_result[@]}"
+do
+	echo "$i:${expr_result[$i]}"
+done
