@@ -44,11 +44,26 @@ echo "Welcome to Sorting Arithmetic Computation Problem"
 
 #Use Case 4 (Compute ( c + a / b ))
 
+#read -p "Enter the value of a: " a
+#read -p "Enter the value of b: " b
+#read -p "Enter the value of c: " c
+#
+##Compute ( c + a / b )
+#
+#expr3=`awk "BEGIN {print $c + ($a / $b)}"`
+#echo "c+a/b="$expr3
+
+
+
+
+
+#Use Case 5 (Compute ( a % b + c ))
+
 read -p "Enter the value of a: " a
 read -p "Enter the value of b: " b
 read -p "Enter the value of c: " c
 
-#Compute ( c + a / b )
+#Compute ( a % b + c )
 
-expr3=`awk "BEGIN {print $c + ($a / $b)}"`
-echo "c+a/b="$expr3
+expr4=`awk "BEGIN {print ($a % $b) + $c}"`
+echo "a%b+c="$expr4
